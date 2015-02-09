@@ -125,13 +125,16 @@ _.extend(ClientIntegrationTestFramework.prototype, {
                   });
               },
               jasmineDone: function () {
-                window.ddpParentConnection.call("jasmine/doneConsumer", currentId)
+                if (currentId){
+                  window.ddpParentConnection.call("jasmine/doneConsumer", currentId);
+                }
               },
               specDone: function (result) {
-                window.ddpParentConnection.call("jasmine/specDoneConsumer",
-                  result,
-                  currentId)
-              }
+                if (currentId){
+                  window.ddpParentConnection.call("jasmine/specDoneConsumer",
+                    result,
+                    currentId);
+                }
             }
 
             env.addReporter(serverReporter);

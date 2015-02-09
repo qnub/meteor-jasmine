@@ -135,6 +135,7 @@ _.extend(ClientIntegrationTestFramework.prototype, {
                     result,
                     currentId);
                 }
+              }
             }
 
             env.addReporter(serverReporter);
